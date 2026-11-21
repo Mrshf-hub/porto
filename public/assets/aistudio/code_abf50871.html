@@ -1,0 +1,1774 @@
+<!DOCTYPE html><html lang="id"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Marsha Yoseline Fau — Portfolio 2026</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Barlow+Condensed:wght@300;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+    :root {
+      --bg-void: #05080D;
+      --bg-deep: #07121E;
+      --glow-teal: rgba(18, 78, 114, 0.42);
+      --glow-cyan: rgba(56, 189, 248, 0.22);
+      --accent-red: #9E1324;
+      --accent-red-bright: #E11D48;
+      --pill-bg: #DCE8F5;
+      --pill-ink: #060A10;
+      --ink: #F4F7FB;
+      --ink-soft: rgba(244, 247, 251, 0.68);
+      --ink-muted: rgba(244, 247, 251, 0.42);
+      --glass: rgba(12, 26, 42, 0.55);
+      --glass-card: rgba(8, 18, 30, 0.68);
+      --border-subtle: rgba(220, 232, 245, 0.14);
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-void);
+      background-image: 
+        radial-gradient(circle at 85% 15%, var(--glow-teal) 0%, transparent 45%),
+        radial-gradient(circle at 10% 45%, var(--glow-cyan) 0%, transparent 40%),
+        radial-gradient(circle at 80% 85%, var(--glow-teal) 0%, transparent 50%),
+        radial-gradient(circle at 20% 90%, rgba(158, 19, 36, 0.18) 0%, transparent 40%);
+      background-attachment: fixed;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--ink);
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    /* Subtle Atmospheric Vignette Overlay */
+    .noise-overlay {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 99;
+      background: radial-gradient(circle at center, transparent 60%, rgba(2, 5, 10, 0.55) 100%);
+    }
+
+    /* Typography Classes */
+    .display {
+      font-family: 'Anton', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 0.92;
+    }
+
+    .year-thin {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+    }
+
+    /* Fixed Monogram */
+    .brand-mark {
+      position: fixed;
+      top: 32px;
+      left: 4vw;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-mark svg {
+      width: 36px;
+      height: 36px;
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4));
+      transition: transform 0.3s var(--ease);
+    }
+    .brand-mark:hover svg {
+      transform: scale(1.1) rotate(-4deg);
+    }
+
+    /* Floating Pill Navigation */
+    .top-nav {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 90;
+      display: flex;
+      align-items: center;
+      background: rgba(10, 20, 32, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-subtle);
+      border-radius: 999px;
+      padding: 5px;
+      gap: 6px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transition: all 0.4s var(--ease);
+    }
+
+    .top-nav a {
+      text-decoration: none;
+      color: var(--ink-soft);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 8px 20px;
+      border-radius: 999px;
+      transition: all 0.3s var(--ease);
+      display: inline-block;
+    }
+
+    .top-nav a:hover {
+      color: #fff;
+    }
+
+    .top-nav a.active {
+      background: var(--pill-bg);
+      color: var(--pill-ink);
+      box-shadow: 0 0 20px rgba(220, 232, 245, 0.4);
+    }
+
+    /* Common Section */
+    section {
+      min-height: 100vh;
+      width: 100%;
+      position: relative;
+    }
+
+    /* ========================================================
+       SECTION 1: HERO
+       ======================================================== */
+    #hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 4vw;
+      min-height: 100svh;
+      overflow: hidden;
+    }
+
+    .hero-pill {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: clamp(250px, 28vw, 390px);
+      height: clamp(250px, 28vw, 380px);
+      background: linear-gradient(135deg, #6E0D19, var(--accent-red));
+      border-radius: 0 999px 999px 0;
+      box-shadow: 0 25px 60px rgba(158, 19, 36, 0.38), inset 0 0 40px rgba(0,0,0,0.4);
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      z-index: 10;
+      animation: slideInPill 1.1s var(--ease) forwards;
+    }
+
+    .hero-pill img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.7));
+      transition: transform 0.6s var(--ease);
+    }
+    .hero-pill:hover img {
+      transform: scale(1.04);
+    }
+
+    .hero-center {
+      margin-left: clamp(140px, 18vw, 240px);
+      text-align: center;
+      z-index: 15;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: riseIn 1s var(--ease) 0.2s both;
+    }
+
+    .hero-title-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: clamp(12px, 1.8vw, 24px);
+    }
+
+    .hero-title-row .main-title {
+      font-size: clamp(56px, 8.8vw, 136px);
+      color: #D6DFE8;
+      text-shadow: 0 10px 40px rgba(0, 0, 0, 0.75);
+    }
+
+    .hero-title-row .main-year {
+      font-size: clamp(42px, 6.2vw, 96px);
+      color: var(--ink-soft);
+    }
+
+    .hero-subtitle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    .hero-dot {
+      width: 7px;
+      height: 7px;
+      background: #FFFFFF;
+      box-shadow: 0 0 10px #FFFFFF, 0 0 20px #FFFFFF;
+      display: inline-block;
+    }
+
+    .hero-menu {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .hero-menu a {
+      text-decoration: none;
+      color: var(--ink-soft);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      padding: 9px 28px;
+      border-radius: 999px;
+      transition: all 0.3s var(--ease);
+      position: relative;
+    }
+
+    .hero-menu a::before,
+    .hero-menu a::after {
+      color: var(--accent-red-bright);
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+      position: absolute;
+    }
+    .hero-menu a::before {
+      content: '▸ ';
+      left: 10px;
+      transform: translateX(-4px);
+    }
+    .hero-menu a::after {
+      content: ' ◂';
+      right: 10px;
+      transform: translateX(4px);
+    }
+
+    .hero-menu a:hover {
+      color: #FFFFFF;
+      background: rgba(220, 232, 245, 0.1);
+      transform: scale(1.06);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-menu a:hover::before,
+    .hero-menu a:hover::after {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ========================================================
+       SECTION 2: PROFILE
+       ======================================================== */
+    #profile {
+      padding: 120px 6vw 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-container {
+      max-width: 1220px;
+      width: 100%;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: clamp(36px, 5vw, 76px);
+      align-items: center;
+    }
+
+    .profile-left {
+      text-align: center;
+      position: relative;
+    }
+
+    .profile-header-tag {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      color: var(--ink-soft);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .profile-name {
+      font-size: clamp(28px, 3.4vw, 46px);
+      color: #FFFFFF;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+      margin-bottom: 24px;
+    }
+
+    .portrait-stage {
+      position: relative;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .backlight-aura {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -20%);
+      width: 290px;
+      height: 290px;
+      background: radial-gradient(circle, rgba(32, 135, 185, 0.45) 0%, transparent 70%);
+      filter: blur(28px);
+      z-index: 1;
+    }
+
+    .cutout-photo {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      display: block;
+      border-radius: 18px;
+      mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Floating embers */
+    .ember-field {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .ember {
+      position: absolute;
+      bottom: 10px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #F59E0B;
+      box-shadow: 0 0 8px #FB7185, 0 0 14px #F59E0B;
+      animation: floatEmber linear infinite;
+    }
+
+    .ember:nth-child(1) { left: 18%; animation-duration: 4.8s; animation-delay: 0.3s; }
+    .ember:nth-child(2) { left: 32%; animation-duration: 6.2s; animation-delay: 1.2s; width: 5px; height: 5px; }
+    .ember:nth-child(3) { left: 52%; animation-duration: 5.5s; animation-delay: 2.1s; background: #FB7185; }
+    .ember:nth-child(4) { left: 68%; animation-duration: 7.1s; animation-delay: 0.8s; }
+    .ember:nth-child(5) { left: 84%; animation-duration: 5.9s; animation-delay: 1.7s; }
+    .ember:nth-child(6) { left: 42%; animation-duration: 6.5s; animation-delay: 2.8s; }
+
+    @keyframes floatEmber {
+      0% {
+        transform: translateY(0) scale(0.6);
+        opacity: 0;
+      }
+      25% {
+        opacity: 0.9;
+      }
+      80% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-260px) translateX(25px) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    /* Right Column Profile Content */
+    .profile-right {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .section-subhead {
+      font-size: 30px;
+      letter-spacing: 0.03em;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+
+    .profile-bio {
+      font-size: 13.5px;
+      line-height: 1.75;
+      color: var(--ink-soft);
+      max-width: 62ch;
+      margin-bottom: 24px;
+    }
+
+    /* Software Skills Grid */
+    .skills-title {
+      font-size: 24px;
+      margin: 16px 0 14px;
+      color: #FFFFFF;
+    }
+
+    .software-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+
+    .software-tile {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--glass-card);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: 0.02em;
+      color: #FFFFFF;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s var(--ease);
+    }
+
+    .software-tile:hover {
+      transform: translateY(-4px) scale(1.08);
+      border-color: rgba(125, 211, 252, 0.5);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+    }
+
+    .software-tile[data-tooltip]::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(8, 18, 30, 0.95);
+      color: #F4F7FB;
+      font-size: 10px;
+      padding: 5px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+      border: 1px solid var(--border-subtle);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      z-index: 20;
+    }
+
+    .software-tile:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-2px);
+    }
+
+    .tile-cc { background: linear-gradient(135deg, #111, #222); border-color: rgba(56, 189, 248, 0.4); color: #38BDF8; }
+    .tile-am { background: linear-gradient(135deg, #0284C7, #0369A1); color: #FFF; }
+    .tile-cv { background: linear-gradient(135deg, #00C4CC, #0891B2); color: #FFF; }
+    .tile-ib { background: linear-gradient(135deg, #2563EB, #1D4ED8); color: #FFF; }
+    .tile-ps { background: linear-gradient(135deg, #C026D3, #9333EA); color: #FFF; }
+    .tile-obs { background: linear-gradient(135deg, #1E293B, #0F172A); border-color: rgba(248, 113, 113, 0.4); color: #F87171; }
+    .tile-off { background: linear-gradient(135deg, #EA580C, #C2410C); color: #FFF; }
+
+    /* Details Grid: Education & Experience */
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: 28px;
+      margin-top: 10px;
+    }
+
+    .detail-col h3 {
+      font-size: 20px;
+      color: #D6DFE8;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .detail-item {
+      margin-bottom: 14px;
+      position: relative;
+      padding-left: 14px;
+      border-left: 2px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .detail-item .period {
+      font-size: 11px;
+      font-weight: 700;
+      color: #7DD3FC;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .detail-item .title {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 2px 0;
+    }
+
+    .detail-item .desc {
+      font-size: 11.5px;
+      color: var(--ink-soft);
+      line-height: 1.45;
+    }
+
+    .tech-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 10px;
+    }
+
+    .tech-pill {
+      font-size: 10.5px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--glass-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--ink-soft);
+      font-weight: 600;
+    }
+
+    /* ========================================================
+       SECTION 3: RECAP PROJECT
+       ======================================================== */
+    #projects {
+      padding: 120px 6vw 90px;
+    }
+
+    .projects-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .projects-title-wrap {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 14px;
+    }
+
+    .projects-title {
+      font-size: clamp(34px, 4.8vw, 64px);
+      color: #D6DFE8;
+    }
+
+    .projects-badge {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--ink-soft);
+      border: 1px solid var(--border-subtle);
+      padding: 3px 12px;
+      border-radius: 999px;
+      background: var(--glass);
+    }
+
+    /* Filter Tabs */
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0 36px;
+      flex-wrap: wrap;
+    }
+
+    .filter-tab {
+      background: var(--glass);
+      border: 1px solid var(--border-subtle);
+      color: var(--ink-soft);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      padding: 7px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.3s var(--ease);
+      text-transform: uppercase;
+    }
+
+    .filter-tab:hover {
+      border-color: rgba(220, 232, 245, 0.4);
+      color: #FFFFFF;
+    }
+
+    .filter-tab.active {
+      background: var(--pill-bg);
+      color: var(--pill-ink);
+      border-color: var(--pill-bg);
+      box-shadow: 0 0 16px rgba(220, 232, 245, 0.35);
+    }
+
+    /* Bento Grid */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .proj-card {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--glass-card);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      transition: all 0.4s var(--ease);
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px;
+    }
+
+    .proj-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(125, 211, 252, 0.55);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65);
+    }
+
+    .proj-bg-art {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.38;
+      transition: transform 0.6s var(--ease), opacity 0.4s;
+      z-index: 1;
+    }
+
+    .proj-card:hover .proj-bg-art {
+      transform: scale(1.06);
+      opacity: 0.5;
+    }
+
+    .proj-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(5,8,13,0.96) 20%, rgba(5,8,13,0.4) 65%, rgba(5,8,13,0.15) 100%);
+      z-index: 2;
+    }
+
+    .proj-header {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .proj-metric {
+      background: rgba(158, 19, 36, 0.92);
+      color: #FFFFFF;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(158, 19, 36, 0.4);
+    }
+
+    .proj-body {
+      position: relative;
+      z-index: 3;
+      margin-top: auto;
+    }
+
+    .proj-meta {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #7DD3FC;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .proj-title {
+      font-size: 21px;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+      line-height: 1.05;
+    }
+
+    .proj-summary {
+      font-size: 12px;
+      color: var(--ink-soft);
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Grid spans */
+    .span-12 { grid-column: span 12; }
+    .span-6 { grid-column: span 6; }
+    .span-5 { grid-column: span 5; }
+    .span-4 { grid-column: span 4; }
+    .span-3 { grid-column: span 3; }
+    .span-7 { grid-column: span 7; }
+
+    /* ========================================================
+       SECTION 4: CONTACT PERSON & THANK YOU
+       ======================================================== */
+    #contact {
+      padding: 120px 6vw 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      min-height: 100svh;
+    }
+
+    .contact-main-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 48px;
+      align-items: center;
+      max-width: 1200px;
+      width: 100%;
+      margin: auto auto;
+      position: relative;
+      z-index: 10;
+    }
+
+    .contact-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-top-row {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .contact-avatar-box {
+      text-align: center;
+    }
+
+    .contact-circle {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 3px solid rgba(220, 232, 245, 0.25);
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 30px rgba(56, 189, 248, 0.15);
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .contact-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.5s var(--ease);
+    }
+    .contact-circle:hover img {
+      transform: scale(1.08);
+    }
+
+    .contact-avatar-box .cap-name {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+    }
+
+    .contact-avatar-box .cap-sub {
+      font-size: 11px;
+      color: var(--ink-soft);
+      letter-spacing: 0.08em;
+    }
+
+    .contact-stack {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .contact-title {
+      font-size: 26px;
+      margin-bottom: 14px;
+      color: #FFFFFF;
+    }
+
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--ink);
+      transition: all 0.25s var(--ease);
+    }
+
+    .contact-item:hover {
+      transform: translateX(4px);
+    }
+
+    .contact-icon-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #F4F7FB;
+      color: #05080D;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+      flex-shrink: 0;
+    }
+
+    .contact-icon-badge svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .contact-handle {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      transition: color 0.2s;
+    }
+
+    .contact-item:hover .contact-handle {
+      color: #7DD3FC;
+    }
+
+    /* Milestone mini cards */
+    .milestone-row {
+      display: flex;
+      gap: 16px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+
+    .milestone-card {
+      width: 210px;
+      border-radius: 12px;
+      padding: 14px 16px;
+      background: var(--glass-card);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .milestone-card .badge {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #7DD3FC;
+      margin-bottom: 4px;
+    }
+
+    .milestone-card .title {
+      font-size: 12px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 2px;
+      letter-spacing: 0.04em;
+    }
+
+    .milestone-card .desc {
+      font-size: 11px;
+      color: var(--ink-soft);
+      line-height: 1.35;
+    }
+
+    /* Right column: Typography & Creative motif */
+    .contact-right {
+      text-align: center;
+      position: relative;
+      padding: 20px;
+    }
+
+    .thankyou-text {
+      font-size: clamp(52px, 7.5vw, 110px);
+      line-height: 0.92;
+      color: #D6DFE8;
+      text-shadow: 0 10px 40px rgba(0,0,0,0.8);
+      user-select: none;
+    }
+
+    .thankyou-year {
+      font-size: clamp(52px, 7.5vw, 110px);
+      line-height: 0.95;
+      color: #D6DFE8;
+      text-shadow: 0 10px 40px rgba(0,0,0,0.8);
+      user-select: none;
+    }
+
+    /* Bottom Decorative Motif */
+    .corner-motif {
+      position: absolute;
+      right: 2vw;
+      bottom: 0;
+      width: clamp(260px, 30vw, 420px);
+      pointer-events: none;
+      opacity: 0.9;
+      z-index: 5;
+    }
+
+    .corner-motif svg {
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.7));
+    }
+
+    /* Footer bar */
+    .footer-bar {
+      width: 100%;
+      padding-top: 24px;
+      margin-top: 40px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--ink-muted);
+      z-index: 10;
+      position: relative;
+    }
+
+    /* Modal / Lightbox */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 9, 16, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s var(--ease);
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      background: #0A1624;
+      border: 1px solid rgba(220, 232, 245, 0.2);
+      border-radius: 18px;
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+      position: relative;
+      padding: 30px;
+      transform: scale(0.94);
+      transition: transform 0.3s var(--ease);
+    }
+
+    .modal-backdrop.open .modal-card {
+      transform: scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: rgba(220, 232, 245, 0.1);
+      border: none;
+      color: #FFFFFF;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.2s;
+    }
+    .modal-close:hover {
+      background: rgba(220, 232, 245, 0.25);
+    }
+
+    .modal-banner {
+      width: 100%;
+      height: 220px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      position: relative;
+      background: #05080D;
+    }
+
+    .modal-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal-title {
+      font-size: 28px;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+    }
+
+    .modal-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .modal-highlights {
+      list-style: none;
+      margin: 18px 0;
+    }
+
+    .modal-highlights li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 13px;
+      color: var(--ink-soft);
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .modal-highlights li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      color: #38BDF8;
+      font-size: 12px;
+    }
+
+    .modal-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0;
+    }
+
+    .modal-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #0284C7, #0369A1);
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 10px 22px;
+      border-radius: 999px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
+    }
+
+    .modal-cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.6);
+    }
+
+    /* Animations */
+    @keyframes slideInPill {
+      from { transform: translateY(-50%) translateX(-100%); opacity: 0; }
+      to { transform: translateY(-50%) translateX(0); opacity: 1; }
+    }
+
+    @keyframes riseIn {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Media Queries */
+    @media (max-width: 900px) {
+      .hero-pill {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        width: 76vw;
+        height: 230px;
+        border-radius: 999px;
+        margin-bottom: 30px;
+      }
+      #hero {
+        flex-direction: column;
+        padding-top: 90px;
+      }
+      .hero-center {
+        margin-left: 0;
+      }
+      .profile-container {
+        grid-template-columns: 1fr;
+      }
+      .contact-main-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .corner-motif {
+        width: 220px;
+        opacity: 0.4;
+      }
+      .bento-grid {
+        grid-template-columns: repeat(6, 1fr);
+      }
+      .span-12, .span-6, .span-5, .span-4, .span-3, .span-7 {
+        grid-column: span 6;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+      .bento-grid {
+        grid-template-columns: 1fr;
+      }
+      .span-12, .span-6, .span-5, .span-4, .span-3, .span-7 {
+        grid-column: span 1;
+      }
+      .footer-bar {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+      .corner-motif {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- Fixed Vignette Overlay -->
+<div class="noise-overlay"></div>
+<!-- Brand Mark Monogram "MF" -->
+<a aria-label="Marsha Yoseline Fau Home" class="brand-mark" href="#hero">
+<svg fill="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#0A1624" height="100" rx="20" stroke="rgba(220, 232, 245, 0.2)" stroke-width="3" width="100"></rect>
+<!-- Sharp Geometric M & F Monogram -->
+<path d="M26 74V26L42 50L58 26V74" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"></path>
+<path d="M68 30H82M68 48H78" stroke="#E11D48" stroke-linecap="round" stroke-width="7"></path>
+</svg>
+</a>
+<!-- Top Floating Pill Navigation -->
+<nav class="top-nav" id="topNav">
+<a class="nav-link" data-section="profile" href="#profile">PROFIL</a>
+<a class="nav-link" data-section="projects" href="#projects">PROJECT</a>
+<a class="nav-link" data-section="contact" href="#contact">CONTACT PERSON</a>
+</nav>
+<!-- ========================================================
+       SECTION 1: HERO (#hero)
+       ======================================================== -->
+<section id="hero">
+<!-- Left Crimson Pill Portrait Frame -->
+<div class="hero-pill">
+<img alt="Marsha Yoseline Fau Portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuyShHAMggdUhMr_tl4jy7hXrSLiOzGvJ5p_Znm_D7E0b3UedQ0b8w41J_HDpewBMLXnVy30gr2V0ozhPuL90xY2tHgAIYc4oaTVX5Ik5Px_k9XVUvRuRqeqWmLLuci-TlzbAyxt1mM5cAPB0kKxyuQ0CgLo8RsgR3x5IxogZ6c-4W9bVllns1M8wCuw1yFD-phE9esg4Wp6lfdKiDnbPjZgMq2MNcEreOkabkRyAShICXSwWXhXQj">
+</div>
+<!-- Center-Right Title Block & Action Menu -->
+<div class="hero-center">
+<div class="hero-title-row">
+<h1 class="display main-title">PORTFOLIO</h1>
+<span class="year-thin main-year">2026</span>
+</div>
+<div class="hero-subtitle">
+<span class="hero-dot"></span>
+<span>VIDEO EDITOR · IT · E-SPORT Operator</span>
+</div>
+<!-- Game-Style Vertical Action Menu -->
+<div class="hero-menu">
+<a href="#profile">START</a>
+<a href="#projects">PROJECTS</a>
+<a href="#contact">CONTACT</a>
+</div>
+</div>
+</section>
+<!-- ========================================================
+       SECTION 2: PROFILE / ABOUT ME (#profile)
+       ======================================================== -->
+<section id="profile">
+<div class="profile-container">
+<!-- Left Column: Portrait with Atmospheric Backlight & Embers -->
+<div class="profile-left">
+<div class="profile-header-tag">HELLO, I AM</div>
+<h2 class="display profile-name">MARSHA YOSELINE FAU</h2>
+<div class="portrait-stage">
+<div class="backlight-aura"></div>
+<img alt="Marsha Yoseline Fau" class="cutout-photo" src="https://lh3.googleusercontent.com/aida/ALJJyrCejXvMDsssDiaIibaWUiX6s6RWMhvlVbhLgyl7JfKgovym2W1RV1n2QwlOwLefSctgXLcXvehS2ifG8va3blhCvqLjy3mAr4znt2IxLjOmcplwpzFY1CBDMC_k2R6XsOcH_5HWEpMiii0aweANRUZPJ78rSWnUdnQ1AXVwnGYJHkw5h5v2rf94gbDy-giR6_KhaYyvHOHqD1vrG9GJfC3tehkcrK6jj4zA9CxghxwZ">
+<!-- Floating Ember Particles -->
+<div class="ember-field">
+<span class="ember"></span>
+<span class="ember"></span>
+<span class="ember"></span>
+<span class="ember"></span>
+<span class="ember"></span>
+<span class="ember"></span>
+</div>
+</div>
+</div>
+<!-- Right Column: Bio, Software Skills, Education, Experience -->
+<div class="profile-right">
+<h2 class="display section-subhead">ABOUT ME</h2>
+<p class="profile-bio">
+          Mahasiswa Teknik Informatika di Institut Teknologi PLN (2026–sekarang) dan lulusan Jurusan IPA SMAS Katolik Bintang Laut Nias Selatan dengan nilai akhir 90.43. Berpengalaman memimpin Bidang Informasi &amp; Teknologi OSIS sejak tahun pertama, memproduksi video kelulusan dan perpisahan dengan total 18.000+ views, mengelola operasional turnamen E-Sport Mobile Legends, serta melakukan perawatan perangkat keras laptop.
+        </p>
+<!-- Software Skills App Tiles -->
+<h3 class="display skills-title">SOFTWARE SKILLS</h3>
+<div class="software-row">
+<div class="software-tile tile-cc" data-tooltip="CapCut: Short-form &amp; music beat sync">CC</div>
+<div class="software-tile tile-am" data-tooltip="Alight Motion: Keyframe &amp; visual motion">AM</div>
+<div class="software-tile tile-cv" data-tooltip="Canva: OSIS 30+ feed &amp; poster desain">Cv</div>
+<div class="software-tile tile-ib" data-tooltip="Ibis Paint X: Ilustrasi digital &amp; lettering">ib</div>
+<div class="software-tile tile-ps" data-tooltip="Picsart: Manipulasi &amp; retouch dokumentasi">Ps</div>
+<div class="software-tile tile-obs" data-tooltip="OBS Studio: E-Sport tournament broadcast">OBS</div>
+<div class="software-tile tile-off" data-tooltip="Microsoft Office: Administrasi IT &amp; laporan">Off</div>
+</div>
+<!-- 2-Column Details: Education & Experience -->
+<div class="details-grid">
+<!-- Col A: Education & Technical Hardware -->
+<div class="detail-col">
+<h3 class="display">EDUCATION</h3>
+<div class="detail-item">
+<div class="period">2026 – Sekarang</div>
+<div class="title">Institut Teknologi PLN</div>
+<div class="desc">S1 Teknik Informatika</div>
+</div>
+<div class="detail-item">
+<div class="period">2023 – 2026</div>
+<div class="title">SMAS Katolik Bintang Laut · Nias Selatan</div>
+<div class="desc">Jurusan Ilmu Pengetahuan Alam (Nilai 90.43)</div>
+</div>
+<h3 class="display" style="margin-top: 24px;">TECHNICAL &amp; HARDWARE</h3>
+<div class="tech-pills">
+<span class="tech-pill">Video Editing</span>
+<span class="tech-pill">Music Sync</span>
+<span class="tech-pill">Photo Editing</span>
+<span class="tech-pill">Dokumentasi</span>
+<span class="tech-pill">OBS Studio</span>
+<span class="tech-pill">Repasta Laptop</span>
+<span class="tech-pill">Deep Cleaning Laptop</span>
+</div>
+</div>
+<!-- Col B: Experience -->
+<div class="detail-col">
+<h3 class="display">EXPERIENCE</h3>
+<div class="detail-item">
+<div class="period">Feb 2025 – Jan 2026</div>
+<div class="title">Kepala Bidang IT OSIS SMASK BL</div>
+<div class="desc">Memegang akun resmi OSIS &amp; sekolah (30+ postingan), tim dokumentasi, penyelenggara lomba E-Sport &amp; poster.</div>
+</div>
+<div class="detail-item">
+<div class="period">Apr – Mei 2026</div>
+<div class="title">Produser &amp; Editor Video Angkatan 23</div>
+<div class="desc">Video Perpisahan (10K+ TikTok views) &amp; Pengumuman Kelulusan (8K+ IG views).</div>
+</div>
+<div class="detail-item">
+<div class="period">Des 2025 &amp; Okt 2024</div>
+<div class="title">Wakil Koordinator &amp; Operator MLBB</div>
+<div class="desc">Turnamen E-Sport Mobile Legends OSIS, operasional siaran OBS Studio &amp; lobby.</div>
+</div>
+<div class="detail-item">
+<div class="period">Apr – Agu 2025</div>
+<div class="title">Editor Promosi Sekolah &amp; PPG</div>
+<div class="desc">6 video promosi (3.000+ views tiap video) &amp; dokumentasi Program PPG.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================
+       SECTION 3: RECAP PROJECT 2026 (#projects)
+       ======================================================== -->
+<section id="projects">
+<div class="projects-header">
+<div class="projects-title-wrap">
+<h2 class="display projects-title">RECAP PROJECT 2026</h2>
+<span class="projects-badge">2024 – 2026</span>
+</div>
+<!-- Filter Tabs -->
+<div class="filter-tabs">
+<button class="filter-tab active" data-filter="ALL">ALL</button>
+<button class="filter-tab" data-filter="VIDEO &amp; MUSIC">VIDEO &amp; MUSIC</button>
+<button class="filter-tab" data-filter="IT OSIS &amp; DESIGN">IT OSIS &amp; DESIGN</button>
+<button class="filter-tab" data-filter="E-SPORT &amp; TECH">E-SPORT &amp; TECH</button>
+</div>
+</div>
+<!-- Bento Showcase Grid -->
+<div class="bento-grid" id="bentoContainer"><div class="proj-card span-6" data-id="farewell-2026">
+          <img class="proj-bg-art" src="https://lh3.googleusercontent.com/aida/ALJJyrDEh9ghuIQBaFLjBA5nSfxJUPJFpSbAElgx_LS9PBnBLucN16DspS-z9hRmi0Qlq-vC_qv6bg0WlYMY7txAS2Lb1uCiPo79WCjNVMEVnu9phCsrgdfTgLrXRl-vijtAC3x5jDXzWf5OvZ2FnCTd5I_MiknGgM_6Bs3iHPhqg4iSQeAtTld81_OG3vriLbwkann5ApIcevf9p9GRFu5dF5YbsHo01VCX3KGoXW2_zX0" alt="VIDEO PERPISAHAN ANGKATAN 23">
+          <div class="proj-scrim"></div>
+          <div class="proj-header">
+            <span class="proj-metric">10,000+ TIKTOK VIEWS</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-meta">APRIL 2026 · VIDEO &amp; MUSIK EDITOR</div>
+            <h3 class="display proj-title">VIDEO PERPISAHAN ANGKATAN 23</h3>
+            <p class="proj-summary">Video perpisahan resmi Angkatan 23 SMAS Katolik Bintang Laut Teluk Dalam yang menembus 10.000+ penayangan di akun TikTok resmi sekolah.</p>
+          </div>
+        </div><div class="proj-card span-6" data-id="graduation-2026">
+          <img class="proj-bg-art" src="https://lh3.googleusercontent.com/aida/ALJJyrCejXvMDsssDiaIibaWUiX6s6RWMhvlVbhLgyl7JfKgovym2W1RV1n2QwlOwLefSctgXLcXvehS2ifG8va3blhCvqLjy3mAr4znt2IxLjOmcplwpzFY1CBDMC_k2R6XsOcH_5HWEpMiii0aweANRUZPJ78rSWnUdnQ1AXVwnGYJHkw5h5v2rf94gbDy-giR6_KhaYyvHOHqD1vrG9GJfC3tehkcrK6jj4zA9CxghxwZ" alt="PENGUMUMAN KELULUSAN ANGKATAN 23">
+          <div class="proj-scrim"></div>
+          <div class="proj-header">
+            <span class="proj-metric">8,000+ IG VIEWS</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-meta">MEI 2026 · PRODUSER VIDEO, VIDEO &amp; MUSIK EDITOR</div>
+            <h3 class="display proj-title">PENGUMUMAN KELULUSAN ANGKATAN 23</h3>
+            <p class="proj-summary">Bertindak sebagai Produser sekaligus Video &amp; Musik Editor untuk pengumuman kelulusan SMA Angkatan 23 dengan 8.000+ views di Instagram.</p>
+          </div>
+        </div><div class="proj-card span-4" data-id="osis-it-head">
+          <img class="proj-bg-art" src="https://lh3.googleusercontent.com/aida/ALJJyrDEh9ghuIQBaFLjBA5nSfxJUPJFpSbAElgx_LS9PBnBLucN16DspS-z9hRmi0Qlq-vC_qv6bg0WlYMY7txAS2Lb1uCiPo79WCjNVMEVnu9phCsrgdfTgLrXRl-vijtAC3x5jDXzWf5OvZ2FnCTd5I_MiknGgM_6Bs3iHPhqg4iSQeAtTld81_OG3vriLbwkann5ApIcevf9p9GRFu5dF5YbsHo01VCX3KGoXW2_zX0" alt="KEPALA BIDANG IT OSIS SMASK BL">
+          <div class="proj-scrim"></div>
+          <div class="proj-header">
+            <span class="proj-metric">30+ OFFICIAL POSTS</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-meta">FEB 2025 – JAN 2026 · KEPALA BIDANG INFORMASI &amp; TEKNOLOGI</div>
+            <h3 class="display proj-title">KEPALA BIDANG IT OSIS SMASK BL</h3>
+            <p class="proj-summary">Dipercaya menjadi Kepala Bidang IT di tahun pertama bergabung OSIS, mengelola akun resmi sekolah/OSIS serta mengadakan lomba E-Sport dan poster digital.</p>
+          </div>
+        </div><div class="proj-card span-4" data-id="promo-ppg-2025">
+          <img class="proj-bg-art" src="https://lh3.googleusercontent.com/aida/ALJJyrCejXvMDsssDiaIibaWUiX6s6RWMhvlVbhLgyl7JfKgovym2W1RV1n2QwlOwLefSctgXLcXvehS2ifG8va3blhCvqLjy3mAr4znt2IxLjOmcplwpzFY1CBDMC_k2R6XsOcH_5HWEpMiii0aweANRUZPJ78rSWnUdnQ1AXVwnGYJHkw5h5v2rf94gbDy-giR6_KhaYyvHOHqD1vrG9GJfC3tehkcrK6jj4zA9CxghxwZ" alt="VIDEO PROMOSI SEKOLAH &amp; PPG">
+          <div class="proj-scrim"></div>
+          <div class="proj-header">
+            <span class="proj-metric">6 VIDEO · 3,000+ VIEWS</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-meta">APRIL – AGUSTUS 2025 · VIDEO EDITOR</div>
+            <h3 class="display proj-title">VIDEO PROMOSI SEKOLAH &amp; PPG</h3>
+            <p class="proj-summary">Mengedit 6 video promosi sekolah dengan rata-rata 3.000+ views per video serta menangani editing video kegiatan PPG.</p>
+          </div>
+        </div><div class="proj-card span-4" data-id="esport-mlbb-ops">
+          <img class="proj-bg-art" src="https://lh3.googleusercontent.com/aida/ALJJyrDEh9ghuIQBaFLjBA5nSfxJUPJFpSbAElgx_LS9PBnBLucN16DspS-z9hRmi0Qlq-vC_qv6bg0WlYMY7txAS2Lb1uCiPo79WCjNVMEVnu9phCsrgdfTgLrXRl-vijtAC3x5jDXzWf5OvZ2FnCTd5I_MiknGgM_6Bs3iHPhqg4iSQeAtTld81_OG3vriLbwkann5ApIcevf9p9GRFu5dF5YbsHo01VCX3KGoXW2_zX0" alt="TURNAMEN E-SPORT MOBILE LEGENDS">
+          <div class="proj-scrim"></div>
+          <div class="proj-header">
+            <span class="proj-metric">2x EVENT ORGANIZER</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-meta">OKT 2024 &amp; DES 2025 · WAKIL KOORDINATOR &amp; OPERATOR</div>
+            <h3 class="display proj-title">TURNAMEN E-SPORT MOBILE LEGENDS</h3>
+            <p class="proj-summary">Berkembang dari volunteer operator pertandingan (2024) menjadi Wakil Koordinator turnamen E-Sport Mobile Legends OSIS (2025).</p>
+          </div>
+        </div><div class="proj-card span-12" data-id="laptop-maintenance">
+          <img class="proj-bg-art" src="https://lh3.googleusercontent.com/aida/ALJJyrCejXvMDsssDiaIibaWUiX6s6RWMhvlVbhLgyl7JfKgovym2W1RV1n2QwlOwLefSctgXLcXvehS2ifG8va3blhCvqLjy3mAr4znt2IxLjOmcplwpzFY1CBDMC_k2R6XsOcH_5HWEpMiii0aweANRUZPJ78rSWnUdnQ1AXVwnGYJHkw5h5v2rf94gbDy-giR6_KhaYyvHOHqD1vrG9GJfC3tehkcrK6jj4zA9CxghxwZ" alt="REPASTA &amp; DEEP CLEANING LAPTOP">
+          <div class="proj-scrim"></div>
+          <div class="proj-header">
+            <span class="proj-metric">HARDWARE CARE</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-meta">TECHNICAL SERVICE · HARDWARE MAINTENANCE</div>
+            <h3 class="display proj-title">REPASTA &amp; DEEP CLEANING LAPTOP</h3>
+            <p class="proj-summary">Layanan perawatan fisik internal laptop meliputi pembersihan debu menyeluruh (deep cleaning) dan penggantian pasta termal prosesor (repasta) untuk menjaga stabilitas suhu kerja sistem.</p>
+          </div>
+        </div></div>
+</section>
+<!-- ========================================================
+       SECTION 4: CONTACT PERSON & THANK YOU (#contact)
+       ======================================================== -->
+<section id="contact">
+<div class="contact-main-grid">
+<!-- Left Column: Circular Portrait, Contact Stack & Milestones -->
+<div class="contact-left">
+<div class="contact-top-row">
+<div class="contact-avatar-box">
+<div class="contact-circle">
+<img alt="Marsha Yoseline Fau Creative Studio" src="https://lh3.googleusercontent.com/aida/ALJJyrDEh9ghuIQBaFLjBA5nSfxJUPJFpSbAElgx_LS9PBnBLucN16DspS-z9hRmi0Qlq-vC_qv6bg0WlYMY7txAS2Lb1uCiPo79WCjNVMEVnu9phCsrgdfTgLrXRl-vijtAC3x5jDXzWf5OvZ2FnCTd5I_MiknGgM_6Bs3iHPhqg4iSQeAtTld81_OG3vriLbwkann5ApIcevf9p9GRFu5dF5YbsHo01VCX3KGoXW2_zX0">
+</div>
+<div class="cap-name">MARSHA YOSELINE FAU</div>
+<div class="cap-sub">IT-PLN · 2026</div>
+</div>
+<div class="contact-stack">
+<h3 class="display contact-title">CONTACT ME</h3>
+<div class="contact-list">
+<!-- Instagram -->
+<a class="contact-item" href="https://www.instagram.com/yoselinefau" rel="noopener" target="_blank">
+<div class="contact-icon-badge">
+<svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</div>
+<span class="contact-handle">@YOSELINEFAU</span>
+</a>
+<!-- LinkedIn -->
+<a class="contact-item" href="https://www.linkedin.com/in/marshayoselinefau" rel="noopener" target="_blank">
+<div class="contact-icon-badge">
+<svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</div>
+<span class="contact-handle">MARSHAYOSELINEFAU</span>
+</a>
+<!-- Email -->
+<a class="contact-item" href="mailto:yoselinefau2008@gmail.com">
+<div class="contact-icon-badge">
+<svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"></path></svg>
+</div>
+<span class="contact-handle">YOSELINEFAU2008@GMAIL.COM</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Mini Milestone Archive -->
+<div class="milestone-row">
+<div class="milestone-card">
+<div class="badge">2024 – 2025</div>
+<div class="title">OSIS KABID IT &amp; E-SPORT</div>
+<div class="desc">30+ Official Posts, Dokumentasi, &amp; Turnamen MLBB Ops</div>
+</div>
+<div class="milestone-card">
+<div class="badge">2026</div>
+<div class="title">ANGKATAN 23 &amp; IT-PLN</div>
+<div class="desc">18.000+ Total Video Views &amp; Mahasiswa Teknik Informatika</div>
+</div>
+</div>
+</div>
+<!-- Right Column: "THANK YOU 2026" Display -->
+<div class="contact-right">
+<h2 class="display thankyou-text">THANK YOU</h2>
+<div class="display thankyou-year">op</div>
+</div>
+</div>
+<!-- Decorative Corner Motif (Stylized Hand + Digital Stylus, 35mm Film Strip & Retro Cassette) -->
+<div class="corner-motif">
+<svg fill="none" viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg">
+<!-- Curved 35mm Cinema Film Strip -->
+<path d="M25 255 C 120 190, 235 235, 395 115" stroke="rgba(220,232,245,0.35)" stroke-linecap="round" stroke-width="44"></path>
+<path d="M25 255 C 120 190, 235 235, 395 115" stroke="#07121E" stroke-linecap="round" stroke-width="32"></path>
+<!-- Film Frames & Sprocket Holes -->
+<circle cx="70" cy="228" fill="#38BDF8" r="3.2"></circle>
+<circle cx="115" cy="206" fill="#38BDF8" r="3.2"></circle>
+<circle cx="160" cy="198" fill="#38BDF8" r="3.2"></circle>
+<circle cx="205" cy="203" fill="#38BDF8" r="3.2"></circle>
+<circle cx="250" cy="192" fill="#38BDF8" r="3.2"></circle>
+<circle cx="295" cy="170" fill="#38BDF8" r="3.2"></circle>
+<circle cx="340" cy="144" fill="#38BDF8" r="3.2"></circle>
+<!-- Retro Audio Cassette Tape -->
+<g transform="translate(185, 162) rotate(-14)">
+<rect fill="#0A1624" height="88" rx="10" stroke="rgba(220,232,245,0.45)" stroke-width="2" width="142"></rect>
+<rect fill="#0E2034" height="46" rx="5" stroke="rgba(56, 189, 248, 0.45)" stroke-width="1.5" width="118" x="12" y="10"></rect>
+<rect fill="#05080D" height="24" rx="4" stroke="rgba(220,232,245,0.25)" stroke-width="1" width="86" x="28" y="21"></rect>
+<circle cx="48" cy="33" fill="none" r="9" stroke="#DCE8F5" stroke-width="2"></circle>
+<circle cx="48" cy="33" fill="#38BDF8" r="3"></circle>
+<circle cx="94" cy="33" fill="none" r="9" stroke="#DCE8F5" stroke-width="2"></circle>
+<circle cx="94" cy="33" fill="#38BDF8" r="3"></circle>
+<path d="M57 33 H85" stroke="rgba(220,232,245,0.35)" stroke-width="1.5"></path>
+<rect fill="#05080D" height="14" rx="3" stroke="rgba(220,232,245,0.25)" stroke-width="1" width="74" x="34" y="66"></rect>
+</g>
+<!-- Stylized Hand Holding Digital Stylus / Brush -->
+<g transform="translate(230, 18)">
+<!-- Stylus Pen -->
+<g transform="translate(42, 16) rotate(36)">
+<rect fill="#1E293B" height="120" rx="5" stroke="rgba(220,232,245,0.6)" stroke-width="1.5" width="13" x="0" y="0"></rect>
+<rect fill="#38BDF8" height="32" opacity="0.45" rx="2" width="7" x="3" y="16"></rect>
+<path d="M0 120 L6.5 140 L13 120 Z" fill="#E11D48"></path>
+<circle cx="6.5" cy="141" fill="#38BDF8" r="3.5"></circle>
+</g>
+<!-- Stylized Geometric Hand Silhouette -->
+<path d="M128 84 C 110 72, 92 78, 80 92 L 66 108 C 60 114, 64 124, 73 122 L 94 114 L 116 128 C 128 134, 144 124, 148 108 Z" fill="#0E2034" stroke="rgba(220,232,245,0.45)" stroke-width="2"></path>
+<path d="M96 92 C 88 86, 78 90, 74 98" stroke="#38BDF8" stroke-linecap="round" stroke-width="2"></path>
+</g>
+</svg>
+</div>
+<!-- Bottom Footer Bar -->
+<div class="footer-bar">
+<div>© 2026 MARSHA YOSELINE FAU — ALL RIGHTS RESERVED</div>
+<div>INFORMATICS IT-PLN · VIDEO &amp; MUSIC EDITOR · CREATIVE TECH</div>
+</div>
+</section>
+<!-- ========================================================
+       MODAL LIGHTBOX
+       ======================================================== -->
+<div aria-modal="true" class="modal-backdrop" id="projectModal" role="dialog">
+<div class="modal-card">
+<button aria-label="Tutup Detail Modal" class="modal-close" id="modalCloseBtn">✕</button>
+<div class="modal-banner" id="modalBanner">
+<img alt="Project Preview" id="modalImg" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgcng9IjgiIGZpbGw9IiNlOGVhZWQiLz48cGF0aCBkPSJNMTcwIDEzMCBsMzAgNDAgbDIwLTE1IGw0MCA1NSBIMTQweiIgZmlsbD0iI2JkYzFjNiIvPjxjaXJjbGUgY3g9IjI1MCIgY3k9IjEyMCIgcj0iMTgiIGZpbGw9IiNiZGMxYzYiLz48L3N2Zz4=">
+</div>
+<div class="modal-meta">
+<span class="proj-metric" id="modalMetric"></span>
+<span class="proj-meta" id="modalPeriod"></span>
+</div>
+<h2 class="display modal-title" id="modalTitle"></h2>
+<p id="modalSummary" style="font-size: 13px; color: var(--ink-soft); line-height: 1.6;"></p>
+<ul class="modal-highlights" id="modalHighlights"></ul>
+<div class="modal-tools" id="modalTools"></div>
+<div style="margin-top: 24px;">
+<a class="modal-cta-btn" href="#" id="modalLink" rel="noopener" target="_blank">
+<span>Lihat Proyek</span>
+<span>↗</span>
+</a>
+</div>
+</div>
+</div>
+<!-- ========================================================
+       VANILLA JAVASCRIPT LOGIC
+       ======================================================== -->
+<script>
+    // Embedded Data matching project blueprint
+    const projectsData = [
+      {
+        id: "farewell-2026",
+        title: "VIDEO PERPISAHAN ANGKATAN 23",
+        period: "APRIL 2026",
+        role: "VIDEO & MUSIK EDITOR",
+        category: "VIDEO & MUSIC",
+        metric: "10,000+ TIKTOK VIEWS",
+        span: "span-6",
+        image: "https://lh3.googleusercontent.com/aida/ALJJyrDEh9ghuIQBaFLjBA5nSfxJUPJFpSbAElgx_LS9PBnBLucN16DspS-z9hRmi0Qlq-vC_qv6bg0WlYMY7txAS2Lb1uCiPo79WCjNVMEVnu9phCsrgdfTgLrXRl-vijtAC3x5jDXzWf5OvZ2FnCTd5I_MiknGgM_6Bs3iHPhqg4iSQeAtTld81_OG3vriLbwkann5ApIcevf9p9GRFu5dF5YbsHo01VCX3KGoXW2_zX0",
+        summary: "Video perpisahan resmi Angkatan 23 SMAS Katolik Bintang Laut Teluk Dalam yang menembus 10.000+ penayangan di akun TikTok resmi sekolah.",
+        highlights: [
+          "Menyunting alur cerita visual dan sinkronisasi musik emosional untuk perpisahan Angkatan 23.",
+          "Meraih 10.000+ views di akun TikTok resmi SMASK BL Teluk Dalam.",
+          "Mengolah arsip dokumentasi sekolah menjadi kompilasi sinematik berdurasi padat."
+        ],
+        tools: ["CapCut", "Alight Motion", "Dokumentasi"],
+        link_label: "Lihat Instagram @yoselinefau",
+        link_url: "https://www.instagram.com/yoselinefau"
+      },
+      {
+        id: "graduation-2026",
+        title: "PENGUMUMAN KELULUSAN ANGKATAN 23",
+        period: "MEI 2026",
+        role: "PRODUSER VIDEO, VIDEO & MUSIK EDITOR",
+        category: "VIDEO & MUSIC",
+        metric: "8,000+ IG VIEWS",
+        span: "span-6",
+        image: "https://lh3.googleusercontent.com/aida/ALJJyrCejXvMDsssDiaIibaWUiX6s6RWMhvlVbhLgyl7JfKgovym2W1RV1n2QwlOwLefSctgXLcXvehS2ifG8va3blhCvqLjy3mAr4znt2IxLjOmcplwpzFY1CBDMC_k2R6XsOcH_5HWEpMiii0aweANRUZPJ78rSWnUdnQ1AXVwnGYJHkw5h5v2rf94gbDy-giR6_KhaYyvHOHqD1vrG9GJfC3tehkcrK6jj4zA9CxghxwZ",
+        summary: "Bertindak sebagai Produser sekaligus Video & Musik Editor untuk pengumuman kelulusan SMA Angkatan 23 dengan 8.000+ views di Instagram.",
+        highlights: [
+          "Memimpin konsep produksi video hingga tahap final editing dan mixing musik.",
+          "Mendapatkan 8.000+ views di akun Instagram Angkatan 23 SMASK BL.",
+          "Bekerja sama dengan tim dokumentasi angkatan untuk pengambilan visual."
+        ],
+        tools: ["CapCut", "Alight Motion", "Photo Editing"],
+        link_label: "Lihat Instagram @yoselinefau",
+        link_url: "https://www.instagram.com/yoselinefau"
+      },
+      {
+        id: "osis-it-head",
+        title: "KEPALA BIDANG IT OSIS SMASK BL",
+        period: "FEB 2025 – JAN 2026",
+        role: "KEPALA BIDANG INFORMASI & TEKNOLOGI",
+        category: "IT OSIS & DESIGN",
+        metric: "30+ OFFICIAL POSTS",
+        span: "span-4",
+        image: "https://lh3.googleusercontent.com/aida/ALJJyrDEh9ghuIQBaFLjBA5nSfxJUPJFpSbAElgx_LS9PBnBLucN16DspS-z9hRmi0Qlq-vC_qv6bg0WlYMY7txAS2Lb1uCiPo79WCjNVMEVnu9phCsrgdfTgLrXRl-vijtAC3x5jDXzWf5OvZ2FnCTd5I_MiknGgM_6Bs3iHPhqg4iSQeAtTld81_OG3vriLbwkann5ApIcevf9p9GRFu5dF5YbsHo01VCX3KGoXW2_zX0",
+        summary: "Dipercaya menjadi Kepala Bidang IT di tahun pertama bergabung OSIS, mengelola akun resmi sekolah/OSIS serta mengadakan lomba E-Sport dan poster digital.",
+        highlights: [
+          "Memegang akun OSIS dan akun resmi sekolah dengan 30+ publikasi visual.",
+          "Menjadi bagian inti tim dokumentasi pada berbagai agenda sekolah.",
+          "Menyelenggarakan lomba E-Sport dan kompetisi poster digital tingkat sekolah."
+        ],
+        tools: ["Canva", "Ibis Paint X", "Picsart", "Microsoft Office"],
+        link_label: "Profil LinkedIn",
+        link_url: "https://www.linkedin.com/in/marshayoselinefau"
+      },
+      {
+        id: "promo-ppg-2025",
+        title: "VIDEO PROMOSI SEKOLAH & PPG",
+        period: "APRIL – AGUSTUS 2025",
+        role: "VIDEO EDITOR",
+        category: "VIDEO & MUSIC",
+        metric: "6 VIDEO · 3,000+ VIEWS",
+        span: "span-4",
+        image: "https://lh3.googleusercontent.com/aida/ALJJyrCejXvMDsssDiaIibaWUiX6s6RWMhvlVbhLgyl7JfKgovym2W1RV1n2QwlOwLefSctgXLcXvehS2ifG8va3blhCvqLjy3mAr4znt2IxLjOmcplwpzFY1CBDMC_k2R6XsOcH_5HWEpMiii0aweANRUZPJ78rSWnUdnQ1AXVwnGYJHkw5h5v2rf94gbDy-giR6_KhaYyvHOHqD1vrG9GJfC3tehkcrK6jj4zA9CxghxwZ",
+        summary: "Mengedit 6 video promosi sekolah dengan rata-rata 3.000+ views per video serta menangani editing video kegiatan PPG.",
+        highlights: [
+          "Memproduksi 6 video promosi sekolah dengan 3.000+ views tiap video di medsos sekolah.",
+          "Menjadi Video Editor untuk dokumentasi Program Pendidikan Profesi Guru (PPG)."
+        ],
+        tools: ["CapCut", "Canva", "Dokumentasi"],
+        link_label: "Lihat Instagram @yoselinefau",
+        link_url: "https://www.instagram.com/yoselinefau"
+      },
+      {
+        id: "esport-mlbb-ops",
+        title: "TURNAMEN E-SPORT MOBILE LEGENDS",
+        period: "OKT 2024 & DES 2025",
+        role: "WAKIL KOORDINATOR & OPERATOR",
+        category: "E-SPORT & TECH",
+        metric: "2x EVENT ORGANIZER",
+        span: "span-4",
+        image: "https://lh3.googleusercontent.com/aida/ALJJyrDEh9ghuIQBaFLjBA5nSfxJUPJFpSbAElgx_LS9PBnBLucN16DspS-z9hRmi0Qlq-vC_qv6bg0WlYMY7txAS2Lb1uCiPo79WCjNVMEVnu9phCsrgdfTgLrXRl-vijtAC3x5jDXzWf5OvZ2FnCTd5I_MiknGgM_6Bs3iHPhqg4iSQeAtTld81_OG3vriLbwkann5ApIcevf9p9GRFu5dF5YbsHo01VCX3KGoXW2_zX0",
+        summary: "Berkembang dari volunteer operator pertandingan (2024) menjadi Wakil Koordinator turnamen E-Sport Mobile Legends OSIS (2025).",
+        highlights: [
+          "Wakil Koordinator E-Sport Mobile Legends OSIS (Desember 2025).",
+          "Volunteer Operator E-Sport Mobile Legends OSIS (Oktober 2024).",
+          "Mengatur alur pertandingan, lobby, serta siaran layar dengan OBS Studio."
+        ],
+        tools: ["OBS Studio", "Event Coordination"],
+        link_label: "Hubungi untuk Kolaborasi",
+        link_url: "#contact"
+      },
+      {
+        id: "laptop-maintenance",
+        title: "REPASTA & DEEP CLEANING LAPTOP",
+        period: "TECHNICAL SERVICE",
+        role: "HARDWARE MAINTENANCE",
+        category: "E-SPORT & TECH",
+        metric: "HARDWARE CARE",
+        span: "span-12",
+        image: "https://lh3.googleusercontent.com/aida/ALJJyrCejXvMDsssDiaIibaWUiX6s6RWMhvlVbhLgyl7JfKgovym2W1RV1n2QwlOwLefSctgXLcXvehS2ifG8va3blhCvqLjy3mAr4znt2IxLjOmcplwpzFY1CBDMC_k2R6XsOcH_5HWEpMiii0aweANRUZPJ78rSWnUdnQ1AXVwnGYJHkw5h5v2rf94gbDy-giR6_KhaYyvHOHqD1vrG9GJfC3tehkcrK6jj4zA9CxghxwZ",
+        summary: "Layanan perawatan fisik internal laptop meliputi pembersihan debu menyeluruh (deep cleaning) dan penggantian pasta termal prosesor (repasta) untuk menjaga stabilitas suhu kerja sistem.",
+        highlights: [
+          "Membersihkan sistem pendingin dan kipas internal dari penumpukan debu pekat.",
+          "Mengganti thermal paste lama untuk menurunkan suhu kerja dan menjaga performa gaming/editing tetap stabil."
+        ],
+        tools: ["Repasta Laptop", "Deep Cleaning Laptop"],
+        link_label: "Tanya Servis via Email",
+        link_url: "mailto:yoselinefau2008@gmail.com?subject=Servis%20Repasta%20%26%20Deep%20Cleaning%20Laptop"
+      }
+    ];
+
+    // Render Bento Grid
+    const bentoContainer = document.getElementById('bentoContainer');
+    function renderProjects(filter = 'ALL') {
+      bentoContainer.innerHTML = '';
+      const filtered = filter === 'ALL' 
+        ? projectsData 
+        : projectsData.filter(p => p.category === filter);
+
+      filtered.forEach(proj => {
+        const card = document.createElement('div');
+        card.className = `proj-card ${proj.span}`;
+        card.dataset.id = proj.id;
+        card.innerHTML = `
+          <img class="proj-bg-art" src="${proj.image}" alt="${proj.title}" />
+          <div class="proj-scrim"></div>
+          <div class="proj-header">
+            <span class="proj-metric">${proj.metric}</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-meta">${proj.period} · ${proj.role}</div>
+            <h3 class="display proj-title">${proj.title}</h3>
+            <p class="proj-summary">${proj.summary}</p>
+          </div>
+        `;
+        card.addEventListener('click', () => openModal(proj));
+        bentoContainer.appendChild(card);
+      });
+    }
+
+    // Filter Buttons
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        filterTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        renderProjects(tab.dataset.filter);
+      });
+    });
+
+    // Modal Interaction
+    const modal = document.getElementById('projectModal');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const modalImg = document.getElementById('modalImg');
+    const modalMetric = document.getElementById('modalMetric');
+    const modalPeriod = document.getElementById('modalPeriod');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalSummary = document.getElementById('modalSummary');
+    const modalHighlights = document.getElementById('modalHighlights');
+    const modalTools = document.getElementById('modalTools');
+    const modalLink = document.getElementById('modalLink');
+
+    function openModal(proj) {
+      modalImg.src = proj.image;
+      modalImg.alt = proj.title;
+      modalMetric.textContent = proj.metric;
+      modalPeriod.textContent = `${proj.period} · ${proj.role}`;
+      modalTitle.textContent = proj.title;
+      modalSummary.textContent = proj.summary;
+      
+      modalHighlights.innerHTML = proj.highlights.map(h => `<li>${h}</li>`).join('');
+      modalTools.innerHTML = proj.tools.map(t => `<span class="tech-pill">${t}</span>`).join('');
+      modalLink.href = proj.link_url;
+      modalLink.firstElementChild.textContent = proj.link_label;
+
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    modalCloseBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+
+    // Navigation Sync via IntersectionObserver
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const topNav = document.getElementById('topNav');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            if (link.dataset.section === id) {
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+          });
+        }
+      });
+    }, {
+      rootMargin: '-30% 0px -40% 0px',
+      threshold: 0.1
+    });
+
+    sections.forEach(sec => observer.observe(sec));
+
+    // Initial render
+    renderProjects('ALL');
+  </script>
+
+
+</body></html>
